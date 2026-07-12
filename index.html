@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="加成 —— 个人作品与思考。一个喜欢把奇想落地的开发者。" />
+  <title>加成 · 作品集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+  <!-- Grain texture overlay -->
+  <div class="grain"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">加成</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">关于</a>
+        <a href="#projects">项目</a>
+        <a href="#stats">数据</a>
+        <a href="mailto:keven.hu@foxmail.com" class="nav-cta">联系</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-badge reveal">开发者 · 产品思维</span>
+        <h1 class="reveal r1">
+          你好，我是<span class="accent">加成</span>
+        </h1>
+        <p class="hero-desc reveal r2">
+          把脑子里每一个奇想都亲手做成产品的独立开发者。<br>
+          从 AI 原生应用到教育基础设施，从 Web 全栈到 Android 原生——<br>
+          每一个项目都是从 0 到 1、可部署、被使用的真实作品。
+        </p>
+        <div class="hero-actions reveal r3">
+          <a href="#projects" class="btn btn-primary">查看作品</a>
+          <a href="#about" class="btn btn-text">关于我 <span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+      <div class="hero-divider"></div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <span class="section-label reveal">关于</span>
+        <h2 class="section-title reveal r1">我想做能解决<em>真实问题</em>的东西。</h2>
+
+        <div class="about-grid">
+          <div class="about-text reveal r2">
+            <p>
+              过去几年，我在<strong>AI 应用</strong>、<strong>Web 全栈</strong> 和 <strong>Android 原生</strong>
+              三个方向都做过完整的项目——每个都是从 0 到 1、落到可部署服务的产品级工程。
+            </p>
+            <p>
+              我相信好的软件像好的工具：<strong>克制、好懂、能用</strong>。
+              每个项目都由一个真实的问题驱动设计，而不是为了技术而技术：
+              一个 AI 学习伴侣该像老师一样引导而非直接给答案；
+              一个文件收集工具应该让老师三分钟上线、剩下的交给系统；
+              一个题库不该只是题目列表，而是要真正帮学生理解每个公式。
+            </p>
+            <p>
+              我喜欢同时驾驭多种技术栈。一个产品从 Web 端做到移动端，
+              从前端交互做到后端 API 再到数据库设计——这种端到端的掌控力是我持续打磨的方向。
+              技术是手段，做出解决真实问题的东西才是目的。
+            </p>
+          </div>
+
+          <div class="about-sidebar">
+            <div class="about-card reveal r3">
+              <h3 class="about-card-title">技术栈</h3>
+              <div class="tags">
+                <span class="tag accent">TypeScript</span>
+                <span class="tag accent">Node.js</span>
+                <span class="tag accent">Kotlin / Compose</span>
+                <span class="tag">Express</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">React · Vite</span>
+                <span class="tag">Drizzle · Prisma</span>
+                <span class="tag">Tailwind</span>
+                <span class="tag">nginx · PM2</span>
+                <span class="tag">SSE / Stream</span>
+              </div>
+            </div>
+            <div class="about-card reveal r4">
+              <h3 class="about-card-title">关注方向</h3>
+              <div class="tags">
+                <span class="tag accent">LLM 应用工程</span>
+                <span class="tag accent">教育产品</span>
+                <span class="tag">流式 UI</span>
+                <span class="tag">Android 性能</span>
+                <span class="tag">独立游戏</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <span class="section-label reveal">项目</span>
+        <h2 class="section-title reveal r1">最近在做的<em>四件小事</em>。</h2>
+
+        <div class="project-grid">
+
+          <a class="project-card reveal r1" href="projects/socrates.html">
+            <div class="project-card-body">
+              <h3 class="project-card-title">苏格拉底式的 AI 老师</h3>
+              <div class="project-card-en">Socrates — AI learning companion</div>
+              <p class="project-card-desc">
+                <strong>核心理念：</strong>学习是苏格拉底式的行为，不是问答行为。基于这一洞察，Socrates 把 LLM 塑造为一位会耐心引导的「老师」——先用例子再讲概念、用引导式提问代替直接否定，而不是扮演一个什么都知道的「助手」。
+                <br><br>
+                <strong>自研流式渲染引擎：</strong>不同于传统 chat UI 在模型输出完才一次性渲染（loading → 全部出现的跳变感），Socrates 实现了逐行状态机 Markdown 渲染器——<code>#</code> → <code>&lt;h1&gt;</code> 在模型刚打出 <code># </code> 的同一帧就出现，列表、引用、代码围栏全部边输出边渲染，零闪烁。完成后才走完整的 marked + KaTeX + highlight.js 管线。这是目前为数不多实现真正「渐进式渲染」的 AI 聊天产品之一。
+                <br><br>
+                <strong>推理模型思维链折叠：</strong>DeepSeek R1、QwQ 等模型的 <code>&lt;think&gt;...&lt;/think&gt;</code> 思维链被渲染为可折叠的 <code>&lt;details&gt;</code> 卡片，思维链前后的内容仍然正常展示，不打断阅读流。
+                <br><br>
+                <strong>Viz 交互画布：</strong>对话框输入 <code>```html</code> 或 <code>```viz</code>，模型输出即渲染为沙箱隔离的交互式 iframe（sandbox="allow-scripts"，不授 allow-same-origin）。流式输出期间显示加载卡片，用户永远不会看到原始代码闪烁。
+                <br><br>
+                <strong>苏格拉底导师模式：</strong>内置诊断阶段评估学习者知识边界 → 生成结构化教学计划（Motivate → Define → Develop → Illustrate → Exercise → Check）→ 知识边界图谱可视化 → 错题本自动捕获与分类 → 卡壳检测与逐级干预（温和提示 → 双选项 → 四选项）。系统提示词本身就是一个产品功能。
+                <br><br>
+                <strong>Agent 工具模式：</strong>SSE 代理执行，支持 web_search（实时网页结果）、code_interpreter（Pyodide WASM Python 沙箱）、文件 I/O 等多种工具。
+                <br><br>
+                <strong>后端子系统和路由：</strong>Express 5 + PostgreSQL + Drizzle ORM，覆盖 30+ API 路由：聊流 SSE、会话 CRUD、项目文件夹、标签筛选、Cmd-K 全局搜索（fuse.js）、斜杠命令面板、错题本、知识边界、跨会话记忆、公共分享链接、用量追踪与计费看板、团队工作空间、推送通知（FCM）、语音转录、图片识别、文档提取（PDF/DOCX/XLSX/PPTX/EPUB/RTF）、网页搜索（MiniMax + Bing + SearXNG 三引擎竞速降级）、Prompt 模板管理。用户 API Key 加密静态存储（AES-GCM），只在单次请求内存中持有。
+                <br><br>
+                <strong>Android 原生客户端：</strong>Kotlin + Jetpack Compose + Material 3，原生 SSE 流式对话、深色/浅色双主题、Room 离线缓存、知识图谱与错题本同步、Deep Link 深度链接、GitHub Actions APK 自动化构建。
+                <br><br>
+                <strong>安全设计：</strong>Cookie 认证（bcrypt + 64 字符随机 sid，HttpOnly + SameSite=Lax）、双重提交 CSRF 防御、SSRF 防护（fetch-batch 逐跳验证重定向）、速率限制、Helmet 安全头。
+              </p>
+              <div class="project-card-tags">
+                <span class="tag">Express 5</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Drizzle ORM</span>
+                <span class="tag">Kotlin Compose</span>
+                <span class="tag">SSE Streaming</span>
+                <span class="tag">Pyodide WASM</span>
+                <span class="tag">AES-GCM</span>
+              </div>
+            </div>
+            <span class="project-card-link">查看详情</span>
+          </a>
+
+          <a class="project-card reveal r2" href="projects/file-collect.html">
+            <div class="project-card-body">
+              <h3 class="project-card-title">极简文件收集平台</h3>
+              <div class="project-card-en">File-Collect — painless file submission</div>
+              <p class="project-card-desc">
+                <strong>解决的问题：</strong>微信群收文件——同名文件会被覆盖、改名丢失来源、收集完成后要一个个点开保存。File-Collect 让教师/组织者只需要三件事就能上线收集：登录后台 → 新建收集任务 → 把链接发给参与者。剩下的事情全部由系统搞定。
+                <br><br>
+                <strong>多主题并行收集：</strong>同一组织者可同时拥有多个收集主题（如"建模比赛"、"实验报告"、"毕业设计"），每个主题拥有独立提交链接、独立存储空间和独立的配置（暂停/恢复、截止时间、速率限制）。
+                <br><br>
+                <strong>管理后台：</strong>完整的单页管理界面——密码登录（默认 000000，可环境变量配置）生成 32 字节随机 hex token -> 持久化到 config/sessions.json，服务器重启后登录状态不丢失。后台功能包括：查看所有提交者清单、按用户筛选文件（含文件大小显示）、单个删除、批量删除用户（二次确认）、单用户文件 ZIP 打包下载、全收集 ZIP 打包下载、新建/删除收集主题（删除前安全检查——已有文件则拒绝）、配置收集暂停/恢复与截止时间（前端实时倒计时）。
+                <br><br>
+                <strong>大文件上传：</strong>单文件最大 500MB，支持拖拽上传，原始文件名 UTF-8 解码（multer binary → Buffer → utf8 转换），中文文件名不乱码。
+                <br><br>
+                <strong>速率限制与安全：</strong>IP 级别上传频率控制（可配置每小时每 IP 上限），纯内存 Map 实现 + 每 5 分钟自动清理过期记录。Nginx 层配合长 timeout（86400s）保证大文件不中断。
+                <br><br>
+                <strong>工程架构：</strong>Node.js 22 + Express 4 + Multer + Archiver（最高压缩级别 9 流式 ZIP，无临时文件）。全应用无数据库——配置存 JSON 文件、会话存 JSON 文件、上传文件存文件系统，原子写入保证一致性。前端全原生 HTML + CSS + JavaScript（零框架、无构建步骤）。部署链路：Nginx 反代 + Let's Encrypt SSL + PM2 进程管理。
+              </p>
+              <div class="project-card-tags">
+                <span class="tag">Node.js</span>
+                <span class="tag">Express</span>
+                <span class="tag">Multer</span>
+                <span class="tag">Archiver</span>
+                <span class="tag">nginx · PM2</span>
+                <span class="tag">Let's Encrypt</span>
+              </div>
+            </div>
+            <span class="project-card-link">查看详情</span>
+          </a>
+
+          <a class="project-card reveal r3" href="projects/question-bank.html">
+            <div class="project-card-body">
+              <h3 class="project-card-title">大学生自建题库</h3>
+              <div class="project-card-en">加成学习 — LaTeX-rendered question bank</div>
+              <p class="project-card-desc">
+                <strong>为什么做：</strong>学期末刷题时，纸质题目翻不到、Ctrl+F 不支持数学公式、商业题库要充值还有广告。一个学生自己上传、整理、刷题；老师一键出卷；公式漂亮渲染；历年卷 PDF 自动转结构化题目——这就是加成学习要做的事。
+                <br><br>
+                <strong>四类题型完整支持：</strong>选择题（选项 JSON 存储，自动批改归一化对比）、填空题（管道符 | 分隔多个可接受答案）、判断题（兼容 正确/对/是/T/True 等多种输入）、简答题（含子题格式化，标记为待人工批改）。难度 1-5 级分层。
+                <br><br>
+                <strong>LaTeX 渲染管线：</strong>自研预处理层——剥离 LaTeX 导言命令、归一化 <code>\(...\)</code> → <code>$...$</code>、处理常见物理单位（\muC、\kV 等）、黑板粗体与花体字母。然后走 remark-math + rehype-katex 水管，渲染失败时 fallback 显示源码。编辑器中内置 LaTeX 工具栏，一键插入数学符号。
+                <br><br>
+                <strong>AI 多引擎支持：</strong>支持 10+ LLM 提供商、约 40 个模型——OpenAI（GPT-4o/4o-mini/4-Turbo/3.5-Turbo/5.2-Thinking）、阿里千问（Qwen-Max/Plus/Turbo/Qwen3-Max-Thinking）、腾讯混元（Pro/256K/Standard/Lite）、DeepSeek（Reasoner/Chat/Coder）、Google Gemini（2.0 Flash/1.5 Pro/1.5 Flash/3.0 Flash/3 Pro）、Anthropic Claude（3.5 Sonnet/3 Opus/3 Haiku/Opus 4.6）、MiniMax、xAI Grok、SiliconFlow 聚合平台、以及自定义 OpenAI 兼容端点。AI 功能包括：智能出卷（选章节/题型/难度/题量 → AI 生成）、题目详解、图片 OCR 识别、PDF 题目识别。
+                <br><br>
+                <strong>试卷生成与考试系统：</strong>PaperBuilder 拖拽组卷界面——搜索筛选题库 → 拖入试卷区 → 拖拽排序 → 每题独立赋分 → 总分配置 → 预览保存。考试端支持计时限制（到期自动交卷）、逐题导航（进度条 + 题号网格）、答案输入因题型而异、简答题附件上传（图片/PDF/文档）、交卷后自动批改展示得分与错题分析。
+                <br><br>
+                <strong>PDF 生成服务：</strong>双实现并行——主链路 Python Flask + Playwright（无头 Chromium 渲染含 KaTeX 公式的 HTML 到 A4 PDF，含页眉/页脚/分页/题号/答案区），备用链路 Node.js + pdf-lib（含完整的 LaTeX 到纯文本转换管线：希腊字母、矩阵、分数、积分、集合论符号等）。PDF 导入走 pdf-parse + pdf2pic 转图片 + AI 视觉模型识别结构化题目。
+                <br><br>
+                <strong>用户系统：</strong>邮箱验证注册（6 位验证码）、登录速率限制 + 超出显示验证码、5 次失败锁定 30 分钟、密码强度校验、忘记/重置密码、记住我 30 天 token、登录审计日志、个人资料编辑/改密/注销。
+                <br><br>
+                <strong>技术架构：</strong>三服务 monorepo——React 18 + Vite 5 + TypeScript + Zustand + Tailwind + framer-motion 前端（:3000 代理到 :3001）、Express + Prisma + SQLite 后端（30+ API 路由，JWT + bcrypt + Helmet + rate-limit 中间件栈）、Python Flask + Playwright PDF 服务（端口 5000）。一键部署脚本 deploy.ps1 全自动安装构建。
+              </p>
+              <div class="project-card-tags">
+                <span class="tag">React 18 · Vite</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Prisma · SQLite</span>
+                <span class="tag">KaTeX</span>
+                <span class="tag">Playwright</span>
+                <span class="tag">10+ LLM Providers</span>
+                <span class="tag">Flask</span>
+              </div>
+            </div>
+            <span class="project-card-link">查看详情</span>
+          </a>
+
+          <a class="project-card reveal r4" href="projects/text-adventure.html">
+            <div class="project-card-body">
+              <h3 class="project-card-title">贝克兰德的 AI 文字冒险</h3>
+              <div class="project-card-en">神秘之旅 — AI-driven RPG in Victorian gothic world</div>
+              <p class="project-card-desc">
+                <strong>世界观：</strong>1349 年的贝克兰德（伦敦）。你扮演一名霍伊大学的历史系学生，意外卷入了超凡力量的世界，通过"占卜家"序列逐步揭开真相。基于《诡秘之主》原著世界观的克苏鲁风格文字冒险，故事不是写死的——AI 来当 DM，每次开档、每个选择都能给出不一样的展开。
+                <br><br>
+                <strong>双模态状态解析引擎：</strong>AI 输出中的结构化标签 <code>{spirituality:80/100}</code> <code>{madness:15}</code> <code>{location:贝克兰德广场}</code> <code>{inventory:+钥匙,-学生证}</code> 等被正则精确提取。当 LLM 偶尔漏输标签时，NLP 启发式解析兜底——通过关键词检测"灵性消耗"、"理智下降"等描述，配合程度副词（轻微/中等/严重）推算增量变化。两种结果合并为 StateUpdate 输出，附带 0-100 的一致性感评分。
+                <br><br>
+                <strong>RPG 状态系统（38 个字段）：</strong>灵性（当前/上限）、疯狂值（数值 + 腐化层级）、金钱（金镑/先令/便士三币制）、背包物品列表、当前序列途径与序列等级（0-9）及消化进度、已掌握能力、知识库、状态效果、阵营声望映射、NPC 关系网、命运织网节点（关键选择/物品接触/NPC 关系，持久化可回溯触发）、封印物（含各自人格状态与效果列表）、灵视开关、角色扮演进度、疯狂表现阶段（正常→内心独白→幻影同伴→失控）、日常日志、称号、成就树、命运路径、神秘点数、进度指标。
+                <br><br>
+                <strong>世界状态：</strong>时间（精确到小时）、地点、天气、已访问位置集合、进行中任务列表、NPC 状态追踪。
+                <br><br>
+                <strong>22 条完整序列途径：</strong>占卜家、偷盗者、学徒、歌颂者、水手、秘祈人、阅读者、律师、罪犯、猎人、窥秘人、耕种者、收尸人、不死者、通识者、巫师、悖论途径、愚者、暴君、太阳、上帝、母神——每条途径含 10 个完整序列等级、关键能力、对应源质与外神，总计 220 个序列等级数据。
+                <br><br>
+                <strong>12 个开局剧本：</strong>含难度分层（EASY ×2、NORMAL ×6、HARD ×2、NIGHTMARE ×2）和标签系统（如"占卜家"、"原初航线"、"新手友好"），以及 4 个彩蛋剧本（扮演外神、造物主等，开局属性 9999/9999）。
+                <br><br>
+                <strong>AI 后端多引擎：</strong>四模式运行时切换——DeepSeek V3.2（SiliconFlow 渠道，默认）、Doubao Mini（火山引擎）、Minimax M2.5、以及任意 OpenAI 兼容的自定义端点。所有引擎共享可配置参数：temperature 0.8、max_tokens 8192、top_p 0.95、frequency_penalty 0.2、presence_penalty 0.2。参数可通过设置界面随时调整。
+                <br><br>
+                <strong>上下文自动压缩：</strong>历史 ≤ 10 条全部保留；总字符 > 8000 时保留最近 6 条 + 老消息摘要（提取关键位置标签和叙事片段）；中间地带保留最近 12 条。确保长对话不超 token 限制且故事连贯。
+                <br><br>
+                <strong>UI/UX：</strong>暗色哥特主题（黑底金饰）、状态栏实时动画条（灵性蓝条、疯狂红条、金币/时间显示）、打字机逐字叙事 + 实时尾部滚动、AI 生成选择按钮的渐入缩放动画、流式响应加载齿轮动画 + 动态点、游戏中一键切换 AI 模型、10 页世界观引导教程（可跳过）、20 个存档位（DataStore JSON 持久化，含元数据：角色名/地点/灵性/时间戳）。
+                <br><br>
+                <strong>技术架构：</strong>Kotlin 1.9.22 + Jetpack Compose（BOM 2024.02）+ Material 3 + MVVM（StateFlow）+ OkHttp 4.12（原生 SSE 流式解析）+ Gson 序列化 + Jetpack DataStore 持久化。AGP 8.13.2 构建，minSdk 26，targetSdk 34。APK 约 11.7 MB。
+              </p>
+              <div class="project-card-tags">
+                <span class="tag">Kotlin</span>
+                <span class="tag">Jetpack Compose</span>
+                <span class="tag">MVVM · StateFlow</span>
+                <span class="tag">OkHttp SSE</span>
+                <span class="tag">DataStore</span>
+                <span class="tag">Gson</span>
+              </div>
+            </div>
+            <span class="project-card-link">查看详情</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="section" id="stats">
+      <div class="container">
+        <span class="section-label reveal">数据</span>
+        <div class="stats-grid">
+
+          <div class="stat-item reveal r1">
+            <div class="stat-value">04</div>
+            <div class="stat-label">完整项目</div>
+          </div>
+          <div class="stat-item reveal r2">
+            <div class="stat-value">10+</div>
+            <div class="stat-label">技术栈</div>
+          </div>
+          <div class="stat-item reveal r3">
+            <div class="stat-value">03</div>
+            <div class="stat-label">部署上线</div>
+          </div>
+          <div class="stat-item reveal r4">
+            <div class="stat-value">∞</div>
+            <div class="stat-label">好奇心</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">© 2026 加成</span>
+        <div class="footer-links">
+          <a href="mailto:keven.hu@foxmail.com">邮件</a>
+          <a href="#projects">作品</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

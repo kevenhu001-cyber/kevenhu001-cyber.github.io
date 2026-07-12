@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>加成学习 · LaTeX 题库系统 · 加成</title>
+  <meta name="description" content="大学生自建题库平台 — 四类题型、LaTeX 公式渲染、AI 智能出卷、PDF 自动导入结构化。React + Vite + Prisma + KaTeX + Playwright 全栈架构。" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+
+  <div class="grain"></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">加成</a>
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html#about">关于</a>
+        <a href="../index.html#projects">项目</a>
+        <a href="mailto:keven.hu@foxmail.com" class="nav-cta">联系</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <article class="article">
+    <div class="article-crumbs">
+      <a href="../index.html">← 返回主页</a>
+      <span class="num">No. 03 / 04</span>
+    </div>
+
+    <div class="article-head">
+      <div class="kicker">Web 全栈 + AI · 教育产品</div>
+      <h1>大学生自己的题库</h1>
+      <p class="dek">
+        纸质题目难检索、Ctrl+F 不支持数学公式、商业题库要充值还有广告——那不如自己做一套。
+        <br><br>
+        <strong>完整的刷题与出卷平台：</strong>一个学生自己上传、整理、刷题；老师一键出卷；公式漂亮渲染；历年卷 PDF 自动转结构化题目。
+        <br><br>
+        <strong>四类题型：</strong>选择题（选项 JSON 存储，批改归一化字符对比）、填空题（管道符 | 分隔多个可接受答案）、判断题（兼容 正确/对/是/T/True 等多种输入）、简答题（含子题序号格式化，标记待人工批改）。难度 1-5 分层。
+        <br><br>
+        <strong>LaTeX 渲染管线：</strong>自研预处理层——剥离 LaTeX 导言命令、归一化 <code>\(...\)</code>→<code>$...$</code>、处理物理单位（\muC、\kV）、黑板粗体与花体字母。而后走 remark-math + rehype-katex 水管，渲染失败时 fallback 显示源码。编辑器内置 LaTeX 工具栏一键插入数学符号。
+        <br><br>
+        <strong>AI 多引擎系统（10+ 提供商 / ~40 模型）：</strong>OpenAI（GPT-4o/4o-mini/4-Turbo/5.2-Thinking）、阿里千问（Qwen-Max/Plus/Qwen3-Max-Thinking）、腾讯混元（Pro/256K/Standard）、DeepSeek（Reasoner/Chat/Coder）、Google Gemini（2.0 Flash/1.5 Pro/3.0 Flash/3 Pro）、Anthropic Claude（3.5 Sonnet/3 Opus/Opus 4.6）、MiniMax、xAI Grok、SiliconFlow 聚合（Qwen2.5/Llama 3.1/DeepSeek 等开源模型）、自定义 OpenAI 兼容端点。AI 能力：智能出卷（选章节/题型/难度/题量 → AI 生成 → 预览/编辑/确认）、题目详解（流式返回可编辑保存）、图片 OCR 识别（base64 → 视觉模型 → 结构化题目 JSON）、PDF 题目识别（pdf-parse + pdf2pic 转图片 → AI 视觉识别）。
+        <br><br>
+        <strong>试卷生成与考试系统（完整闭环）：</strong>PaperBuilder 拖拽组卷——搜索筛选题库 → 拖入试卷区 → 拖拽排序 → 每题独立赋分 → 总分配置 → 草稿自动保存到 localStorage → 预览确认保存。考试端：计时限制（到期自动交卷）、逐题导航（进度条 + 题号网格 + 快速跳转）、答案输入因题型自适应、简答题附件上传（图片/PDF/文档）、交卷后自动批改展示得分与错题分析。
+        <br><br>
+        <strong>PDF 生成双实现：</strong>主链路 Python Flask + Playwright（无头 Chromium 渲染含 KaTeX 公式的 HTML 到 A4 PDF，带页眉/页脚/分页/题号/答案区）。备用链路 Node.js + pdf-lib（含完整 LaTeX→纯文本转换管线：希腊字母、矩阵、分数、积分、集合论、化学式等符号映射）。
+        <br><br>
+        <strong>用户系统：</strong>邮箱验证注册（6 位码）、登录速率限制 + 5 次失败锁定 30 分钟 + 验证码保护、密码强度校验、忘记/重置密码、记住我 30 天 token、登录审计日志、个人资料编辑/改密/注销。
+        <br><br>
+        <strong>技术架构（三服务 monorepo）：</strong>前端 React 18 + Vite 5 + TypeScript + Zustand + Tailwind + framer-motion（13 个页面路由，KaTeX+react-markdown 渲染管线，AI 配置与模型选择面板）。后端 Express + Prisma + SQLite（30+ API 路由，JWT + bcrypt + Helmet + rate-limit 中间件栈，PDF 识别/生成/导入服务）。PDF 服务 Python Flask + Playwright（独立端口 5000）。一键部署脚本 deploy.ps1 全自动安装构建。
+      </p>
+      <div class="byline">
+        <span>2025 · Full-stack</span>
+        <span>核心栈：<em>React 18 · Vite · TypeScript · Tailwind · Prisma · SQLite · KaTeX · Playwright · Flask</em></span>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <h2>为什么做这个</h2>
+      <p>学期末刷题时，能用的工具总是差点意思：</p>
+      <ul>
+        <li>纸质题目——翻不到、印刷差、想按章节筛做不到</li>
+        <li>Word / PDF 流传——Ctrl+F 不支持数学公式、LaTeX 渲染失败</li>
+        <li>商业题库 App——题目不全、要充值、还附带广告</li>
+      </ul>
+      <p>我想要的是：<strong>每个学生自己上传、整理、刷题；老师一键出卷；公式漂亮呈现；历年卷 PDF 自动转结构化题目。</strong></p>
+
+      <h2>核心特性</h2>
+
+      <h3>LaTeX 公式原生渲染</h3>
+      <p>
+        数学题最大的痛点。用 <code>remark-math</code> + <code>rehype-katex</code> 全链路打通，
+        <code>$E = mc^2$</code> 和 <code>$$\int_0^1 x^2 dx$$</code> 都能正常显示。
+      </p>
+
+      <h3>AIGC 智能出卷</h3>
+      <p>
+        选好章节、题型、难度、题量 → AI 自动出题 → 后端入库 →
+        后台可以预览、调整或整卷替换。
+      </p>
+
+      <h3>PDF 自动导入</h3>
+      <p>
+        上传历年卷 PDF，服务端用 <code>pdf-parse</code> + 自研解析器，
+        把试卷拆成结构化题目。渲染时附带原始版面图方便核对。
+      </p>
+
+      <h3>试卷生成器 & 在线做题</h3>
+      <p>
+        从题库挑选题目、自由排版、一键导出 PDF。在线做题支持单题练习、整卷模拟、错题重做。
+        每做完一份卷子自动统计正确率、用时、知识点分布。
+      </p>
+
+      <table class="tech-table">
+        <thead><tr><th>层</th><th>技术</th></tr></thead>
+        <tbody>
+          <tr><td>前端框架</td><td>React 18 · TypeScript · Vite</td></tr>
+          <tr><td>样式</td><td>Tailwind CSS · framer-motion</td></tr>
+          <tr><td>状态</td><td>Zustand</td></tr>
+          <tr><td>公式 / 富文本</td><td>KaTeX · react-markdown · remark-math</td></tr>
+          <tr><td>PDF</td><td>pdfjs-dist</td></tr>
+          <tr><td>后端</td><td>Node · Express · TypeScript</td></tr>
+          <tr><td>ORM</td><td>Prisma</td></tr>
+          <tr><td>认证</td><td>JWT · bcrypt · express-rate-limit · helmet</td></tr>
+        </tbody>
+      </table>
+
+      <h2>学到了什么</h2>
+      <ol>
+        <li><strong>富文本 + 数学公式是个无限坑。</strong>不要相信任何单一 Markdown 库能搞定，必须自己写"清洗 → 分词 → 行内 / 块级判定"的预处理层。</li>
+        <li><strong>PDF 是个比 Markdown 更脏的格式。</strong>从 Word 导出 PDF、从 LaTeX 编译 PDF、扫描件 PDF 完全是三种文档，需要不同的解析策略。</li>
+        <li><strong>Prisma 比裸 SQL 开发快得多</strong>，但写复杂查询时还是得回到 <code>$queryRaw</code>。</li>
+        <li><strong>AI 生成的内容必须有二次编辑界面。</strong>Preview + Edit + Confirm 是 AI 产品标配。</li>
+      </ol>
+
+      <div class="callout">
+        <p>后续计划：错题本 + 智能组卷推荐、按知识点薄弱做针对性练习。</p>
+      </div>
+    </div>
+
+    <div class="article-tail">
+      <div class="signoff">
+        完
+        <span>加成 · 一份诚实的记录</span>
+      </div>
+    </div>
+
+    <div class="related-block">
+      <a class="related-card" href="text-adventure.html">
+        <span class="label"><span>下一篇</span><span class="arrow">→</span></span>
+        <h4>贝克兰德的 AI 文字冒险</h4>
+        <p>神秘之旅</p>
+      </a>
+      <a class="related-card" href="file-collect.html">
+        <span class="label"><span>上一篇</span><span class="arrow">←</span></span>
+        <h4>极简文件收集平台</h4>
+        <p>File-Collect</p>
+      </a>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">© 2026 加成</span>
+        <div class="footer-links">
+          <a href="../index.html">主页</a>
+          <a href="mailto:keven.hu@foxmail.com">邮件</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>

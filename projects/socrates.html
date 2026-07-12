@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Socrates · AI 学习伴侣 · 加成</title>
+  <meta name="description" content="Socrates — 自研逐行状态机 Markdown 渲染引擎，流式对话、推理模型思维链折叠、Viz 画布沙箱、多文档解析。Express 5 + PostgreSQL + Kotlin Compose 全栈。" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+
+  <div class="grain"></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">加成</a>
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html#about">关于</a>
+        <a href="../index.html#projects">项目</a>
+        <a href="mailto:keven.hu@foxmail.com" class="nav-cta">联系</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <article class="article">
+    <div class="article-crumbs">
+      <a href="../index.html">← 返回主页</a>
+      <span class="num">No. 01 / 04</span>
+    </div>
+
+    <div class="article-head">
+      <div class="kicker">AI 应用 · 全栈工程 · Production</div>
+      <h1>苏格拉底式的 AI 老师</h1>
+      <p class="dek">
+        重新定义 AI 聊天界面——从文本框与日志，到一个会耐心引导你思考的老师。
+        <br><br>
+        <strong>核心理念：</strong>「学习是苏格拉底式的行为，不是问答行为。」Socrates 将 LLM 塑造为一位会耐心引导的「老师」，而非什么都知道的「助手」。系统提示词本身就是产品功能——改为"老师"而非"助手"后，整个对话的语调、用词、节奏完全变了。
+        <br><br>
+        <strong>自研逐行状态机 Markdown 渲染引擎：</strong>Socrates 独创的 <code>formatMsgProgressive</code> 函数每帧驱动一个状态机——<code>#</code> 打出即渲染为 <code>&lt;h1&gt;</code>、列表/引用/代码围栏全部边输出边渲染，不依赖任何第三方库（无 marked、无 flicker）。输出完成后走完整的 <code>formatMsg</code> 管线（marked + KaTeX + highlight.js + viz 沙箱 + 思维链折叠）。这是目前为数不多实现真正"渐进式渲染"的 AI 聊天产品之一。
+        <br><br>
+        <strong>推理模型支持：</strong>DeepSeek R1、QwQ 等模型的 <code>&lt;think&gt;...&lt;/think&gt;</code> 思维链折叠为可展开的 <code>&lt;details&gt;</code> 卡片，链前链后内容正常展示，不打断阅读流。
+        <br><br>
+        <strong>Viz 交互画布：</strong>输入 <code>```html</code> 或 <code>```viz</code>，模型输出即渲染为沙箱隔离的 iframe（sandbox="allow-scripts" 禁用 same-origin），流式期间显示加载卡片，用户永远不会看到原始代码闪烁。
+        <br><br>
+        <strong>苏格拉底导师模式：</strong>诊断阶段评估知识边界 → 结构化教学计划（Motivate → Define → Develop → Illustrate → Exercise → Check）→ 知识边界图谱可视化 → 错题本自动分类 → 卡壳检测与逐级干预（温和提示 → 双选项 → 四选项）。
+        <br><br>
+        <strong>Agent 工具模式：</strong>SSE 代理执行——typing 事件实时显示思考状态、tool_use 事件触发 web_search（三引擎竞速降级：MiniMax → Bing → SearXNG）/ code_interpreter（Pyodide WASM 池预热启动，避免冷启动 3-5s 延迟）/ 文件 I/O。服务端 30s drain timeout 保证活跃 SSE 流不中断。
+        <br><br>
+        <strong>后端子系统和路由（30+ API）：</strong>Express 5 + PostgreSQL + Drizzle ORM。聊流 SSE 端点、会话 CRUD、项目文件夹拖拽排序、标签多选筛选、Cmd-K 全局搜索（fuse.js 跨会话标题+内容）、斜杠命令面板、错题本 CRUD、知识边界节点聚合、跨会话记忆读写、公共分享链接（/s/:token）、用量追踪与计费看板、团队工作空间、FCM 推送通知、语音转录、图片识别、文档提取（PDF/DOCX/XLSX/PPTX/EPUB/RTF）、Prompt 模板管理。用户 API Key 加密静态存储（AES-GCM 派生自 SESSION_SECRET），只在单次请求内存中持有，绝不落日志。CSRF 防御有三条独立代码路径处理不同的隐私模式边界条件。SSRF 防护使用 redirect:'manual' 逐跳验证而非跟随重定向。
+        <br><br>
+        <strong>Android 原生客户端：</strong>Kotlin + Jetpack Compose + Material 3，双主题配色同步 Web 端。原生 SSE 流式对话、OkHttp + StateFlow 管线。知识图谱与错题本 Room 离线缓存。Deep Link + App Links 验证邮件深度链接。CI 自动构建 debug + release APK。
+        <br><br>
+        <strong>前端架构（~13,824 行 main.js）：</strong>双渲染管线（渐进式流渲染 + 最终全渲染）、Proxy 响应式状态、国际化 i18n、CDN 资源加载管线（marked + KaTeX + highlight.js + mermaid + fuse.js 延迟加载）、自定义 Vite 插件解决模块依赖顺序问题。Nonce 占位符转义方案避免 naive escape → markup → restore 在用户输入含 <code>&lt;code&gt;</code> 字面量时出错。
+        <br><br>
+        <strong>产品上下文自动刷新：</strong>后台每 6 小时抓取官网内容生成产品知识上下文块注入系统提示词，让模型能回答产品定价/功能/FAQ 等问题。
+      </p>
+      <div class="byline">
+        <span>2025 — 至今 · 已部署上线</span>
+        <span>核心栈：<em>Express 5 · PostgreSQL · Drizzle ORM · Kotlin Compose 3 · Vanilla JS + Vite · Pyodide WASM</em></span>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <h2>为什么做这个</h2>
+      <p>
+        大多数 AI 聊天产品的 UX 都很相似 —— 一个文本框、一段日志。
+        但我想要的不是 Q&A，我想要一个<strong>会引导我思考的老师</strong>。
+      </p>
+      <p>
+        这个项目的核心 insight 在于：<strong>学习是苏格拉底式的行为，不是问答行为。</strong>
+        好的老师不直接给答案，而是先用例子、再讲概念；用引导式提问代替"你错了"。
+      </p>
+
+      <blockquote>
+        "就像一位耐心温和的老师在跟你聊天。平时正常对话，不刻意教东西。
+        对方问问题或遇到困难时，再拿出老师的引导感；
+        讲东西时先举例子再讲概念，用'换个角度想想'代替'你错了'。"
+      </blockquote>
+
+      <p>
+        这是项目内置的 <code>prompts/teacher-mode.md</code> 系统提示词原文。
+        这个 prompt 就是 Socrates 区别于其他 AI 聊天产品的灵魂。
+      </p>
+
+      <h2>核心功能</h2>
+
+      <h3>逐行 Markdown 渲染</h3>
+      <p>
+        传统 chat UI 在 LLM 输出完才一次性渲染，会有明显的"loading → 全部出现"的跳变感。
+        Socrates 自己实现了一个<strong>逐行状态机 Markdown 渲染器</strong>：
+        <code>#</code> → <code>&lt;h1&gt;</code> 在模型刚打出 <code># </code> 的同一帧就出现；
+        列表、引用、代码围栏、行内 <code>**bold**</code> 全部边输入边渲染。
+        完成后才走完整的 <code>marked</code> + KaTeX + highlight.js 管线。整个过程零闪烁。
+      </p>
+
+      <h3>推理模型支持</h3>
+      <p>
+        DeepSeek R1、QwQ 等推理模型输出形如 <code>&lt;think&gt;...&lt;/think&gt;</code> 的思维链。
+        Socrates 把它折叠为 <code>&lt;details&gt;</code> 卡片，思维链前后的内容仍然正常展示。
+      </p>
+
+      <h3>可交互 Viz 画布</h3>
+      <p>
+        对话框里输入 <code>```html</code> 或 <code>```viz</code>，模型就会输出一个可交互的
+        React/HTML/SVG 作品，沙箱隔离在同一个源的 iframe 里。
+      </p>
+
+      <h3>文档解析</h3>
+      <p>
+        上传 PDF / DOCX / XLSX / PPTX / EPUB / RTF 文件，服务端解析成纯文本注入上下文。
+      </p>
+
+      <h3>组织功能</h3>
+      <p>
+        项目（对话文件夹）+ 独立 System Prompt、多标签筛选、置顶归档、30 天回收站、Cmd-K 全局搜索、斜杠命令面板。
+      </p>
+
+      <h2>技术栈</h2>
+
+      <table class="tech-table">
+        <thead><tr><th>层</th><th>技术</th></tr></thead>
+        <tbody>
+          <tr><td>Web SPA</td><td>原生 JS · Vite 构建</td></tr>
+          <tr><td>数学公式</td><td>KaTeX 0.16.9（CDN · SRI 固定）</td></tr>
+          <tr><td>代码高亮</td><td>highlight.js（消息完成时延迟加载）</td></tr>
+          <tr><td>后端</td><td>Node.js 22+ · Express 5 · ESM</td></tr>
+          <tr><td>ORM</td><td>Drizzle ORM 0.40+ + drizzle-kit 迁移</td></tr>
+          <tr><td>数据库</td><td>PostgreSQL 14+</td></tr>
+          <tr><td>LLM 代理</td><td>OpenAI 兼容协议（OpenAI / Anthropic / MiniMax）</td></tr>
+          <tr><td>文档解析</td><td>mammoth · SheetJS · jszip · EPub · rtf2text</td></tr>
+          <tr><td>网页搜索</td><td>MiniMax + Bing 并行竞速 · SearXNG 降级</td></tr>
+          <tr><td>代码沙箱</td><td>Pyodide WASM</td></tr>
+          <tr><td>Android</td><td>Kotlin · Jetpack Compose · Material 3</td></tr>
+          <tr><td>部署</td><td>nginx 反代 + deploy.sh 一键发布</td></tr>
+        </tbody>
+      </table>
+
+      <h2>安全模型</h2>
+      <ul>
+        <li><strong>认证</strong>：bcrypt 哈希 + 64 字符随机 sid cookie，HttpOnly + SameSite=Lax</li>
+        <li><strong>CSRF</strong>：双重提交 cookie 模式</li>
+        <li><strong>API Key</strong>：加密静态存储；浏览器只看到掩码；代理只在单次请求内存中持有</li>
+        <li><strong>Viz iframe</strong>：<code>sandbox="allow-scripts"</code>，不授 <code>allow-same-origin</code></li>
+      </ul>
+
+      <h2>学到了什么</h2>
+      <ol>
+        <li><strong>流式 UI 的关键是"渐进式渲染"。</strong>逐行状态机虽然写起来繁琐，但它给了用户"AI 在我面前思考"的真实感。</li>
+        <li><strong>系统提示词本身就是一个产品功能。</strong>改成"老师"而非"助手"的几个字差异，让整个对话的语调、用词、节奏完全变了。</li>
+        <li><strong>不要相信模型。</strong>每帧跑一个 <code>stripChatArtifacts()</code> 函数过滤模板字符。</li>
+        <li><strong>用 nonce 占位符做转义。</strong>朴素的"escape → markup → restore"在用户文本里出现 <code>&lt;code&gt;</code> 字面量时会炸。</li>
+      </ol>
+
+      <div class="callout">
+        <p>仓库目前是私有状态。在线体验：<a href="https://app.topodrive.top/" target="_blank" rel="noopener">app.topodrive.top</a>。</p>
+      </div>
+    </div>
+
+    <div class="article-tail">
+      <div class="signoff">
+        完
+        <span>加成 · 一份诚实的记录</span>
+      </div>
+    </div>
+
+    <div class="related-block">
+      <a class="related-card" href="file-collect.html">
+        <span class="label"><span>下一篇</span><span class="arrow">→</span></span>
+        <h4>极简文件收集平台</h4>
+        <p>File-Collect</p>
+      </a>
+      <a class="related-card" href="text-adventure.html">
+        <span class="label"><span>下一篇</span><span class="arrow">→</span></span>
+        <h4>贝克兰德的 AI 文字冒险</h4>
+        <p>神秘之旅</p>
+      </a>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">© 2026 加成</span>
+        <div class="footer-links">
+          <a href="../index.html">主页</a>
+          <a href="mailto:keven.hu@foxmail.com">邮件</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>
